@@ -5,5 +5,5 @@ from .settings.yasg import urlpatterns_swagger as doc
 urlpatterns = [
       path('admin/', admin.site.urls),
       path('api/', include('apps.products.urls')),
-      path('api/', include('apps.users.urls'))
+      path('api/users/', include('apps.users.urls'))
 ] + doc

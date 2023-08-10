@@ -9,7 +9,7 @@ from .models import CustomUser
 class SignUpSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['email', 'username', 'user_type', 'password']
+        fields = ['email', 'username', 'password']
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate_email(self, value):
