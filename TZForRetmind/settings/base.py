@@ -54,13 +54,6 @@ REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 
 
-RQ_QUEUES = {
-    "default": {
-        "HOST": REDIS_HOST,
-        "PORT": REDIS_PORT,
-        "DEFAULT_TIMEOUT": 360,
-    }
-}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -71,17 +64,13 @@ DATABASES = {
         'POST': config('DB_PORT'),
     }
 }
-#
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "http:/192.168.1.38/:6379/1",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
-# }
-
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
