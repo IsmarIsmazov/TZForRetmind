@@ -16,6 +16,7 @@ class Tag(models.Model):
         return self.name
 
 
+
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)

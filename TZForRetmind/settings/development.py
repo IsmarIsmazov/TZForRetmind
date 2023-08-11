@@ -16,6 +16,7 @@ INSTALLED_LIBRARY = [
     "corsheaders",
     'rest_framework_simplejwt',
     'rest_framework.authtoken',
+    'openpyxl'
 
 ]
 

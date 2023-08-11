@@ -1,4 +1,8 @@
-FROM ubuntu:latest
+FROM python:latest
 LABEL authors="ismarhahazov"
-
-ENTRYPOINT ["top", "-b"]
+ENV PYTHONWRITEBYTECODE 1
+ENV PYTHONBUFFERED 1
+WORKDIR /TZForRetmind
+COPY requirements.txt .
+RUN pip install -r /TZForRetmind/requirements.txt
+ADD . .
