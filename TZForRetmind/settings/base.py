@@ -50,6 +50,17 @@ WSGI_APPLICATION = 'TZForRetmind.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+
+
+RQ_QUEUES = {
+    "default": {
+        "HOST": REDIS_HOST,
+        "PORT": REDIS_PORT,
+        "DEFAULT_TIMEOUT": 360,
+    }
+}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -60,6 +71,16 @@ DATABASES = {
         'POST': config('DB_PORT'),
     }
 }
+#
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "http:/192.168.1.38/:6379/1",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         }
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -121,8 +142,6 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False,

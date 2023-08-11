@@ -2,7 +2,6 @@ from .base import *
 
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = True if config('DEBUG') == 'on' else False
-ALLOWED_HOSTS = ["*"]
 
 CREATE_APPS = [
     'apps.users',
